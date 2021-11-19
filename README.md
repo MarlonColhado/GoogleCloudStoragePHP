@@ -1,6 +1,6 @@
 # GoogleCloudStoragePHP
 
-> Idiomatic PHP client for [Cloud Storage](https://cloud.google.com/storage/).Lighter and easier to use library
+> Lighter and easier to use library
 
 ### Sample Usage
 
