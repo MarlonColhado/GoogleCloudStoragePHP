@@ -53,7 +53,7 @@ $objects = $GoogleCloud->ListObjects(1, 5); //parameters: page, maxResults
 print_r($objects);
 
 //List objects with pagination from a specific folder
-$objects = $GoogleCloud->ListObjects(2, 5, "folder); //parameters: page, maxResults, folder
+$objects = $GoogleCloud->ListObjects(2, 5, "folder"); //parameters: page, maxResults, folder
 print_r($objects);
 ```
 
