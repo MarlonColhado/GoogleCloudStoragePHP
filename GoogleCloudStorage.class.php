@@ -11,7 +11,7 @@
 class GoogleCloudStorage {
 	
 	private $keyfile_cached;
-	public $access_token;
+	private $access_token;
 	private $assertion_cached;
 	private $bucketname;
 
