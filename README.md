@@ -2,11 +2,15 @@
 
 > Lighter and easier to use library
 
-### Sample Usage
+## Installation
 
 ```php
 require 'GoogleCloudStorage.class.php';
+```
 
+## Sample Usage
+### Google Cloud Authentication
+```php
 //Google Cloud - Service Account Generated Key
 $key = '{
     "type": "service_account",
@@ -23,22 +27,41 @@ $key = '{
 
 //Generate credentials/authorization
 $GoogleCloud = new GoogleCloudStorage($key, "BUCKET NAME");
+```
 
+### Change to another bucket
+```php
 //If you need to change the bucket name
 $GoogleCloud->Bucket("CHANGE TO ANOTHER BUCKET NAME");
+```
 
+### List all objects
+```php
 //List all objects
-$objects = $GoogleCloud->ListObjects();
+$objects = $GoogleCloud->ListAllObjects();
 print_r($objects);
 
-//List objects from a specific folder
-$objects = $GoogleCloud->ListObjects("folder");
+//List all objects from a specific folder
+$objects = $GoogleCloud->ListAllObjects("folder");
+print_r($objects);
+```
+
+### List objects with pagination
+```php
+//List objects with pagination
+$objects = $GoogleCloud->ListObjects(1, 5); //parameters: page, maxResults
 print_r($objects);
 
-//Upload object (fileContent is the raw file data) [file_get_contents]
+//List objects with pagination from a specific folder
+$objects = $GoogleCloud->ListObjects(2, 5, "folder); //parameters: page, maxResults, folder
+print_r($objects);
+```
+
+### Upload objects
+```php
+//Parameters: rawFileData [file_get_contents], fileName
 $object = $GoogleCloud->UploadObject($fileContent, "image.jpg");
-print_r($object);
 
-//Upload object to specific folder (fileContent is the raw file data) [file_get_contents]
+//Upload object to specific folder - Parameters: rawFileData [file_get_contents], fileName, folder
 $object = $GoogleCloud->UploadObject($fileContent, "image.jpg", "folder");
 ```
